@@ -15,7 +15,7 @@ function handleCardButtonClick(e) {
 
   // populate the modal with the new info
   modalInner.innerHTML = `
-    <img src="${imgSrc.replace('200', '600')}" alt="${name}" />
+    <img width="600" height="600" src="${imgSrc.replace('200', '600')}" alt="${name}" />
     <p>${desc}</p>
   `
 
@@ -23,11 +23,21 @@ function handleCardButtonClick(e) {
   modalOuter.classList.add('open')
 }
 
+function closeModal() {
+  modalOuter.classList.remove('open')
+}
+
 cardButtons.forEach((button) => button.addEventListener('click', handleCardButtonClick))
 
 modalOuter.addEventListener('click', (e) => {
   const isOutside = !e.target.closest('.modal-inner')
   if (isOutside) {
-    modalOuter.classList.remove('open')
+    closeModal()
+  }
+})
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeModal()
   }
 })
