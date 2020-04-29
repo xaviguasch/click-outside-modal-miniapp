@@ -1,3 +1,7 @@
+body {
+  background: #ffb3b3;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -51,8 +55,8 @@
   border-radius: 5px;
   min-height: 200px;
   background: white;
-  transform: translateY(-200%);
-  transition: transform 2s;
+  /* transform: translateY(-200%);
+  transition: transform 2s; */
 }
 
 .modal-outer.open .modal-inner {
